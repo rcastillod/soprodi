@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,php}"],
+  content: ["./**/*.{html,js,php}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'var(--ast-global-color-0)',
+        secondary: 'var(--ast-global-color-1)',
+      },
+    },
   },
   plugins: [
     require("@tailwindcss/typography"),
