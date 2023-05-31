@@ -7,6 +7,9 @@ module.exports = {
         primary: 'var(--ast-global-color-0)',
         secondary: 'var(--ast-global-color-1)',
       },
+      fontFamily: {
+        aktivBold: ["aktiv-bold", "sans-serif"],
+      },
     },
   },
   plugins: [

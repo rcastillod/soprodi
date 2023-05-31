@@ -1,0 +1,45 @@
+/* -------------------------------------------------------------------------- */
+/*                                    FONTS                                   */
+/* -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "aktiv-thin";
+  src: url("../fonts/aktivgrotesk-thin-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "aktiv-ligth";
+  src: url("../fonts/aktivgrotesk-lightitalic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "aktiv-regular";
+  src: url("../fonts/aktivgrotesk-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "aktiv-medium";
+  src: url("../fonts/aktivgrotesk-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "aktiv-bold";
+  src: url("../fonts/aktivgrotesk-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "aktiv-black";
+  src: url("../fonts/aktivgrotesk-black-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   GLOBAL                                   */
+/* -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-aktivBold;
+}

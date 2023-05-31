@@ -32,7 +32,7 @@ function livePreview(done) {
     // server: {
     //   baseDir: options.paths.dist.base,
     // },
-    proxy: 'http://nombresitio.local/',
+    proxy: 'http://soprodi.local/',
     port: options.config.port || 5000,
   });
   done();
@@ -47,7 +47,7 @@ function previewReload(done) {
 
 //Development Tasks
 function devPHP() {
-  return src('/**/*.php')
+  return src('./**/*.php')
 }
 
 function devStyles() {
