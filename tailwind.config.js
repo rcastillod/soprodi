@@ -8,7 +8,7 @@ module.exports = {
         secondary: 'var(--ast-global-color-1)',
       },
       fontFamily: {
-        aktivBold: ["aktiv-bold", "sans-serif"],
+        aktivGrotesk: ["aktiv-grotesk", "sans-serif"],
       },
     },
   },
