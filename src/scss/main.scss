@@ -26,3 +26,33 @@ h2 > span,
 h3 > span {
   @apply text-primary;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                 COMPONENTS                                 */
+/* -------------------------------------------------------------------------- */
+
+// Products card
+.product__card {
+  min-height: 18.75rem;
+}
+
+.product__card > .elementor-widget-wrap::after {
+  content: '';
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+  @apply bg-gradient-to-t from-primary to-transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product__card > .elementor-widget-wrap > .elementor-element {
+  z-index: 1;
+}
+
+.product__card h5 {
+  border-bottom: 1px solid white;
+  margin-bottom: 0;
+  padding-block-end: 1.25rem;
+}
