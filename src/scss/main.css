@@ -41,5 +41,20 @@
 /*                                   GLOBAL                                   */
 /* -------------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  @apply aktivGrotesk;
+  @apply font-aktivGrotesk relative;
+}
+
+h2::before, h3::before {
+  @apply bg-primary;
+  content: "";
+  display: inline-block;
+  margin-inline-end: 0.3125rem;
+  height: 0.625rem;
+  width: 0.625rem;
+  border-radius: 50%;
+}
+
+h2 > span,
+h3 > span {
+  @apply text-primary;
 }
