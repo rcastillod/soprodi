@@ -41,10 +41,21 @@ h3 > span {
   border-radius: inherit;
   height: 100%;
   width: 100%;
-  @apply bg-gradient-to-t from-primary to-transparent;
+  background-image: linear-gradient(to top, rgba(16, 28, 32, 1), rgba(16, 28, 32, 0.1));
   position: absolute;
   top: 0;
   left: 0;
+  opacity: .5;
+  transition: opacity 300ms ease-in-out;
+}
+
+.product__card:is(:hover, :focus) > .elementor-widget-wrap::after {
+  opacity: .9;
+}
+
+.product__card > .elementor-widget-wrap > .elementor-element,
+.product__card > .elementor-widget-wrap > .elementor-element .elementor-icon-box-title {
+  position: unset;
 }
 
 .product__card > .elementor-widget-wrap > .elementor-element {
@@ -55,4 +66,89 @@ h3 > span {
   border-bottom: 1px solid white;
   margin-bottom: 0;
   padding-block-end: 1.25rem;
+}
+
+.product__card h5 > a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+}
+
+// Products sidebar
+
+// Mobile product list toggle
+.products__toggle {
+  @apply block md:hidden;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.products__toggle .elementor-icon {
+  @apply bg-primary;
+  display: grid;
+  place-items: center;
+  margin-left: auto;
+  height: 24px;
+  width: 24px;
+  border-radius: 3px;
+}
+
+
+.products__toggle .elementor-icon > i {
+  transition: transform 300ms ease-in-out;
+}
+
+.products__toggle.active .elementor-icon > i {
+  transform: rotate(180deg);
+}
+
+// Product list
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items {
+  display: none;
+}
+
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items.show {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .sidebar__products .elementor-widget-container > ul.elementor-icon-list-items {
+    display: block;
+  }
+}
+
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items li {
+  display: grid;
+  grid-template-columns: .125rem auto;
+  gap: 1.25rem;
+}
+
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items li::before {
+  content: '';
+  height: 1.25rem;
+  width: 100%;
+  background-color: rgba(16, 28, 32, 0.2);
+  border-radius: 5px;
+  transition: background 300ms ease-in-out;
+}
+
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items li > a {
+  @apply text-tertiary;
+}
+
+// Active & hover state
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items li > span {
+  @apply text-secondary font-semibold;
+}
+
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items li:has( > span)::before,
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items li:is(:hover, :focus)::before {
+  @apply bg-secondary;
+}
+
+.sidebar__products .elementor-widget-container > ul.elementor-icon-list-items li:is(:hover, :focus) > a {
+  @apply text-secondary;
 }
