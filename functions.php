@@ -16,6 +16,7 @@ if (!defined('ABSPATH')) exit;
 $file_includes = array(
 	'/enqueue.php',
 	'/extras.php',
+	'/template-shortcodes.php',
 );
 
 foreach ($file_includes as $file) {
