@@ -15,12 +15,12 @@ get_header();
 <style>
 	.site-content .ast-container {
 		max-width: 100%;
-		padding: 0;
+		padding: 0 !important;
 	}
 </style>
 
 
-<section id="primary" <?php astra_primary_class('single-solutions'); ?>>
+<section <?php astra_primary_class('single-solutions'); ?>>
 	<main id="main">
 
 		<?php
@@ -46,22 +46,32 @@ get_header();
 								<h3 class="section__title-heading">Products</h3>
 							</div>
 							<ul class="section__sidebar-list">
-								<?php foreach ($featured_products as $product) :
+
+								<?php
+								// Track displayed categories
+								$displayed_categories = array();
+
+								foreach ($featured_products as $post) :
 
 									// Setup this post for WP functions (variable must be named $post).
-									setup_postdata($product); ?>
+									setup_postdata($post); ?>
 									<?php
 									// Replace 'category' with the taxonomy you want to retrieve terms from (e.g., 'category', 'post_tag')
 									$taxonomy = 'products-category';
 
 									// Get the terms associated with the post
-									$terms = wp_get_post_terms($product->ID, $taxonomy);
+									$terms = wp_get_post_terms($post->ID, $taxonomy);
 
 									// Check if there are any terms
 									if (!empty($terms)) {
-										foreach ($terms as $term) {
-											echo '<a href="' . get_term_link($term) . '">' . $term->name . '</a> ';
-										}
+
+										foreach ($terms as $term) :
+											// Check if the category has already been displayed
+											if (!in_array($term->term_id, $displayed_categories)) :
+												echo '<span class="section__sidebar-list_catname">' . $term->name . '</span>';
+												$displayed_categories[] = $term->term_id;
+											endif;
+										endforeach;
 									} else {
 										echo 'No terms found.';
 									}
